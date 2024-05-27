@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp1fx93r6rj80qypzmo.mysql.rds.aliyuncs.com:3306/hotel?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: host
+    password: your_password
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 30
+      minimum-idle: 10
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: your_password
+    timeout: 5000
+    database: 1
+
+  jackson:
+    ## 格式为yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+    ## 定时区，解决8小时的时间差问题
+    time-zone: GMT+8
+
+  # 热部署
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      additional-exclude: static/**
+
+server:
+  servlet:
+    context-path: /api
+  port: 8001
+
+# 日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+logging:
+  config: classpath:logback-spring.xml
+
+central-airconditioner:
+  ability: 3
+  fee-rate: 1
+  server-waiting-time: 5000
+  temperature-change-rate:
+    high: 0.6
+    middle: 0.5
+    low: 0.4
+  power-consumption-rate:
+    high: 1
+    middle: 2
+    low: 3

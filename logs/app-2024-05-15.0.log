@@ -1,0 +1,383 @@
+2024-05-15 10:18:51 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 18304 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 10:18:51 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 10:18:51 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 10:18:53 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 10:19:10 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26463a6, org.springframework.security.web.context.SecurityContextPersistenceFilter@24405466, org.springframework.security.web.header.HeaderWriterFilter@68b3248a, org.springframework.web.filter.CorsFilter@6c5ae8fd, org.springframework.security.web.authentication.logout.LogoutFilter@4afcae7, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@12abcd1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d4b019e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@698f4aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17354708, org.springframework.security.web.session.SessionManagementFilter@134d7ffa, org.springframework.security.web.access.ExceptionTranslationFilter@a1e912f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ba06506]
+2024-05-15 10:19:10 [main] INFO  com.gzx.hotel.core.Application - Started Application in 19.851 seconds (JVM running for 22.463)
+2024-05-15 10:22:25 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/user/login
+2024-05-15 10:22:25 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-15 10:22:25 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.UserController.loginByUsernamePassword
+2024-05-15 10:22:25 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [User(recordId=null, username=300923, password=a0rNte, name=null, roleName=null, locked=null, createTime=null)]
+2024-05-15 10:22:26 [http-nio-8001-exec-3] DEBUG c.g.h.c.dao.UserDao.getUserWithRoles - ==>  Preparing: SELECT u.*, r.`name` AS role_name FROM user u LEFT JOIN user_role ur ON u.id_ = ur.user_id LEFT JOIN role r ON ur.role_id = r.id_ WHERE u.username = ?
+2024-05-15 10:22:26 [http-nio-8001-exec-3] DEBUG c.g.h.c.dao.UserDao.getUserWithRoles - ==> Parameters: 300923(String)
+2024-05-15 10:22:26 [http-nio-8001-exec-3] DEBUG c.g.h.c.dao.UserDao.getUserWithRoles - <==      Total: 1
+2024-05-15 10:22:29 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=success, msg=操作成功, data={token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMDA5MjMiLCJleHAiOjE3MTYzNDQ1NDZ9.21ZYu_Z4e67n0jy7DYXG78IoS8-S3qINCsWz9ml0gQM})
+2024-05-15 10:23:09 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 10:24:26 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:24:26 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:24:26 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:24:26 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:26:56 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 3
+}
+2024-05-15 10:27:02 [http-nio-8001-exec-9] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 10:27:02 [http-nio-8001-exec-9] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 10:30:03 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 6132 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 10:30:03 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 10:30:03 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 10:30:05 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 10:30:08 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cd5ff55, org.springframework.security.web.context.SecurityContextPersistenceFilter@9c0d0bd, org.springframework.security.web.header.HeaderWriterFilter@7db791df, org.springframework.web.filter.CorsFilter@6003220a, org.springframework.security.web.authentication.logout.LogoutFilter@671d97bc, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@73893ec1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18e6b72b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@259195fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16b64a03, org.springframework.security.web.session.SessionManagementFilter@76af34b5, org.springframework.security.web.access.ExceptionTranslationFilter@36f6d25c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@32b46831]
+2024-05-15 10:30:08 [main] INFO  com.gzx.hotel.core.Application - Started Application in 5.611 seconds (JVM running for 7.099)
+2024-05-15 10:31:06 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 10:31:08 [http-nio-8001-exec-10] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:31:09 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:31:09 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:31:09 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:39:53 [SpringContextShutdownHook] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 10:39:59 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 19476 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 10:39:59 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 10:39:59 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 10:40:01 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 10:40:03 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f2d3391, org.springframework.security.web.context.SecurityContextPersistenceFilter@50df37eb, org.springframework.security.web.header.HeaderWriterFilter@714f1a44, org.springframework.web.filter.CorsFilter@71b0289b, org.springframework.security.web.authentication.logout.LogoutFilter@15f2a43f, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@5e599100, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41143873, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74b97416, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42cc420b, org.springframework.security.web.session.SessionManagementFilter@58aa5c94, org.springframework.security.web.access.ExceptionTranslationFilter@5c573229, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@395281c2]
+2024-05-15 10:40:04 [main] INFO  com.gzx.hotel.core.Application - Started Application in 5.155 seconds (JVM running for 6.579)
+2024-05-15 10:41:30 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 10:41:41 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:41:41 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:41:41 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:41:41 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:44:56 [SpringContextShutdownHook] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 10:45:01 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 4568 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 10:45:01 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 10:45:01 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 10:45:03 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 10:45:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a357c3e, org.springframework.security.web.context.SecurityContextPersistenceFilter@601f264d, org.springframework.security.web.header.HeaderWriterFilter@5f5c187d, org.springframework.web.filter.CorsFilter@7740b0ab, org.springframework.security.web.authentication.logout.LogoutFilter@48fc0211, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@1fb2eec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@261275ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c07e830, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3eb9c575, org.springframework.security.web.session.SessionManagementFilter@63c99f7, org.springframework.security.web.access.ExceptionTranslationFilter@6ace919c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5df2023c]
+2024-05-15 10:45:06 [main] INFO  com.gzx.hotel.core.Application - Started Application in 5.172 seconds (JVM running for 6.602)
+2024-05-15 10:45:15 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 10:45:32 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:45:32 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:45:32 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:45:32 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:45:49 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 10:45:49 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 10:45:49 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request VALUES
+2024-05-15 10:45:49 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 
+2024-05-15 10:50:15 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 6864 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 10:50:15 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 10:50:15 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 10:50:16 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 10:50:19 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@350d26f3, org.springframework.security.web.context.SecurityContextPersistenceFilter@27261190, org.springframework.security.web.header.HeaderWriterFilter@438aaa9f, org.springframework.web.filter.CorsFilter@c6a692e, org.springframework.security.web.authentication.logout.LogoutFilter@6ace919c, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@33ec2c0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e46891d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71ad959b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27502e5c, org.springframework.security.web.session.SessionManagementFilter@7b5833ee, org.springframework.security.web.access.ExceptionTranslationFilter@455da438, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27438750]
+2024-05-15 10:50:19 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.984 seconds (JVM running for 6.419)
+2024-05-15 10:50:26 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 10:50:31 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:50:31 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:50:31 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:50:31 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:50:37 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 10:50:37 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 10:50:37 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request VALUES
+2024-05-15 10:50:37 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 
+2024-05-15 10:51:00 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 1
+2024-05-15 10:51:01 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:51:01 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:51:01 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:51:02 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:51:10 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 3
+}
+2024-05-15 10:51:13 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 10:57:06 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 1
+2024-05-15 10:57:17 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request VALUES
+2024-05-15 10:57:17 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 
+2024-05-15 10:57:22 [http-nio-8001-exec-8] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 2
+2024-05-15 10:57:27 [http-nio-8001-exec-9] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 10:57:27 [http-nio-8001-exec-9] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 10:57:27 [http-nio-8001-exec-9] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 10:57:27 [http-nio-8001-exec-9] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 10:57:33 [http-nio-8001-exec-10] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 11:08:16 [SpringContextShutdownHook] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 2
+2024-05-15 11:08:22 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 14780 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 11:08:22 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 11:08:22 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 11:08:24 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 11:08:26 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ba06506, org.springframework.security.web.context.SecurityContextPersistenceFilter@485451d8, org.springframework.security.web.header.HeaderWriterFilter@3c07e830, org.springframework.web.filter.CorsFilter@63dc3420, org.springframework.security.web.authentication.logout.LogoutFilter@4756e5cc, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@15605d83, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a1e912f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b0ed98a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@525b8922, org.springframework.security.web.session.SessionManagementFilter@1a84a8b2, org.springframework.security.web.access.ExceptionTranslationFilter@7f5e6833, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1716c037]
+2024-05-15 11:08:27 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.869 seconds (JVM running for 6.333)
+2024-05-15 11:08:35 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 11:08:38 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 11:08:39 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 11:08:39 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 1(Integer)
+2024-05-15 11:08:39 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 11:09:00 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 8,
+    "recordId": "1",
+    "status": 1
+}
+2024-05-15 11:09:05 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 8,
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 11:09:57 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 11:10:03 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request VALUES
+2024-05-15 11:10:03 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 
+2024-05-15 11:10:57 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 1
+2024-05-15 11:10:59 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": null,
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 11:10:59 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, status ) VALUES ( ?, ? )
+2024-05-15 11:10:59 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 4(Integer)
+2024-05-15 11:10:59 [http-nio-8001-exec-6] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 11:11:10 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 9,
+    "recordId": "1",
+    "status": 4
+}
+2024-05-15 11:11:49 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 1
+2024-05-15 11:11:49 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request VALUES
+2024-05-15 11:11:49 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 
+2024-05-15 11:12:26 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 20428 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 11:12:26 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 11:12:26 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 11:12:28 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 11:12:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50bf795f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e517c9e, org.springframework.security.web.header.HeaderWriterFilter@734f8317, org.springframework.web.filter.CorsFilter@29fcfc54, org.springframework.security.web.authentication.logout.LogoutFilter@7f305f34, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@33ec2c0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76b5a559, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4403bff8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@353b0719, org.springframework.security.web.session.SessionManagementFilter@37d6dddc, org.springframework.security.web.access.ExceptionTranslationFilter@42ecc554, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13234ac9]
+2024-05-15 11:12:31 [main] INFO  com.gzx.hotel.core.Application - Started Application in 5.25 seconds (JVM running for 6.7)
+2024-05-15 11:13:00 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 11:13:03 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": null,
+    "recordId": "1",
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 11:13:03 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, windspeed, status ) VALUES ( ?, ?, ? )
+2024-05-15 11:13:03 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 3(Integer), 1(Integer)
+2024-05-15 11:13:03 [http-nio-8001-exec-5] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 11:13:10 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 10,
+    "recordId": "1",
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 11:13:18 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 10,
+    "recordId": "1",
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 11:13:21 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, start_time, end_time, windspeed, fee, rate, status ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+2024-05-15 11:13:21 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 11:13:03.921(Timestamp), 2024-05-15 11:13:21.144(Timestamp), 3(Integer), 17.223(Double), 1.0(Double), 4(Integer)
+2024-05-15 11:13:21 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 15:37:40 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 21728 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 15:37:40 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 15:37:40 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 15:37:42 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 15:37:43 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79eeff87, org.springframework.security.web.context.SecurityContextPersistenceFilter@5503de1, org.springframework.security.web.header.HeaderWriterFilter@2e43c38d, org.springframework.web.filter.CorsFilter@6b4fc2d1, org.springframework.security.web.authentication.logout.LogoutFilter@583fb274, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@26350ea2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@343fddd9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34be065a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8bd076a, org.springframework.security.web.session.SessionManagementFilter@3290b1a6, org.springframework.security.web.access.ExceptionTranslationFilter@7c369270, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61874b9d]
+2024-05-15 15:37:44 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.167 seconds (JVM running for 5.233)
+2024-05-15 15:37:58 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 15:37:59 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "requestTime": 2024-05-15 11:13:03,
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 15:37:59 [http-nio-8001-exec-3] ERROR com.gzx.hotel.core.ws.ClientWS - 向客户端同步请求失败, Unexpected character ('-' (code 45)): was expecting comma to separate Object entries
+ at [Source: (String)"{
+    "recordId": 1,
+    "requestTime": 2024-05-15 11:13:03,
+    "windSpeed": 3,
+    "status": 1
+}"; line: 3, column: 25]
+2024-05-15 15:37:59 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 15:38:30 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 19820 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 15:38:30 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 15:38:30 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 15:38:31 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 15:38:33 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79eeff87, org.springframework.security.web.context.SecurityContextPersistenceFilter@5503de1, org.springframework.security.web.header.HeaderWriterFilter@2e43c38d, org.springframework.web.filter.CorsFilter@6b4fc2d1, org.springframework.security.web.authentication.logout.LogoutFilter@583fb274, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@26350ea2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@343fddd9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34be065a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8bd076a, org.springframework.security.web.session.SessionManagementFilter@3290b1a6, org.springframework.security.web.access.ExceptionTranslationFilter@7c369270, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61874b9d]
+2024-05-15 15:38:33 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.928 seconds (JVM running for 4.952)
+2024-05-15 15:39:01 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 15:39:03 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "requestTime": 2024-05-15 11:13:03,
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 15:39:03 [http-nio-8001-exec-2] ERROR com.gzx.hotel.core.ws.ClientWS - 向客户端同步请求失败, Unexpected character ('-' (code 45)): was expecting comma to separate Object entries
+ at [Source: (String)"{
+    "recordId": 1,
+    "requestTime": 2024-05-15 11:13:03,
+    "windSpeed": 3,
+    "status": 1
+}"; line: 3, column: 25]
+2024-05-15 15:39:03 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 16:01:07 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 18748 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 16:01:07 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 16:01:07 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 16:01:08 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 16:01:10 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5438c17a, org.springframework.security.web.context.SecurityContextPersistenceFilter@3290b1a6, org.springframework.security.web.header.HeaderWriterFilter@9f86dc3, org.springframework.web.filter.CorsFilter@b9d018b, org.springframework.security.web.authentication.logout.LogoutFilter@1d0cac30, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@74e6094b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67bf0480, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a13fcf3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@429aeac1, org.springframework.security.web.session.SessionManagementFilter@51f18e31, org.springframework.security.web.access.ExceptionTranslationFilter@54e43bfe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22d9ca63]
+2024-05-15 16:01:11 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.148 seconds (JVM running for 5.144)
+2024-05-15 16:01:27 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 16:01:29 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "requestTime": 2024-05-15 11:13:03,
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 16:01:29 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 16:01:38 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 1
+2024-05-15 16:01:39 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 16:01:39 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 1
+2024-05-15 16:02:25 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 24568 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 16:02:25 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 16:02:25 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 16:02:26 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 16:02:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1039bfc4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b515eab, org.springframework.security.web.header.HeaderWriterFilter@2a02e34b, org.springframework.web.filter.CorsFilter@7f85217c, org.springframework.security.web.authentication.logout.LogoutFilter@3635099, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@3e3315d9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1536ea40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@574059d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fd7a37, org.springframework.security.web.session.SessionManagementFilter@494c8f29, org.springframework.security.web.access.ExceptionTranslationFilter@3281dfc2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e957e2f]
+2024-05-15 16:02:28 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.831 seconds (JVM running for 4.907)
+2024-05-15 16:02:34 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 16:02:35 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 1
+}
+2024-05-15 16:02:36 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, windspeed, status ) VALUES ( ?, ?, ?, ? )
+2024-05-15 16:02:36 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:02:36.016(Timestamp), 3(Integer), 1(Integer)
+2024-05-15 16:02:36 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:02:58 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:02:58 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 16:02:58 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, start_time, end_time, windspeed, fee, rate, status ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ? )
+2024-05-15 16:02:58 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:02:36.016(Timestamp), 2024-05-15 16:02:36.625(Timestamp), 2024-05-15 16:02:58.63(Timestamp), 3(Integer), 22.005(Double), 1.0(Double), 4(Integer)
+2024-05-15 16:02:58 [http-nio-8001-exec-4] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:05:56 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 20164 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 16:05:56 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 16:05:56 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 16:05:58 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 16:06:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1039bfc4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b515eab, org.springframework.security.web.header.HeaderWriterFilter@2a02e34b, org.springframework.web.filter.CorsFilter@7f85217c, org.springframework.security.web.authentication.logout.LogoutFilter@3635099, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@3e3315d9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1536ea40, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@574059d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1fd7a37, org.springframework.security.web.session.SessionManagementFilter@494c8f29, org.springframework.security.web.access.ExceptionTranslationFilter@3281dfc2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e957e2f]
+2024-05-15 16:06:00 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.161 seconds (JVM running for 5.224)
+2024-05-15 16:06:09 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 16:06:11 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:06:11 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, windspeed, status ) VALUES ( ?, ?, ?, ? )
+2024-05-15 16:06:11 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:06:11.043(Timestamp), 3(Integer), 4(Integer)
+2024-05-15 16:06:11 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:06:44 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:06:44 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 16:06:44 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RequestDao.updateById - ==>  Preparing: UPDATE request SET record_id=?, request_time=?, start_time=?, end_time=?, windspeed=?, fee=?, rate=?, status=? WHERE id_=?
+2024-05-15 16:06:44 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RequestDao.updateById - ==> Parameters: 1(Long), 2024-05-15 16:06:11.043(Timestamp), 2024-05-15 16:06:11.598(Timestamp), 2024-05-15 16:06:44.654(Timestamp), 3(Integer), 33.056(Double), 1.0(Double), 4(Integer), 14(Long)
+2024-05-15 16:06:44 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RequestDao.updateById - <==    Updates: 1
+2024-05-15 16:08:25 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 3160 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-15 16:08:25 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-15 16:08:25 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-15 16:08:26 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-15 16:08:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@297bd171, org.springframework.security.web.context.SecurityContextPersistenceFilter@76b305e1, org.springframework.security.web.header.HeaderWriterFilter@55053f81, org.springframework.web.filter.CorsFilter@118cbded, org.springframework.security.web.authentication.logout.LogoutFilter@782cc5fa, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@7436364d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7adae08e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@efe49ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cc26df, org.springframework.security.web.session.SessionManagementFilter@31940704, org.springframework.security.web.access.ExceptionTranslationFilter@218df7d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45297e7]
+2024-05-15 16:08:28 [main] INFO  com.gzx.hotel.core.Application - Started Application in 4.121 seconds (JVM running for 5.234)
+2024-05-15 16:08:52 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 0
+2024-05-15 16:08:53 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:08:54 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, windspeed, status ) VALUES ( ?, ?, ?, ? )
+2024-05-15 16:08:54 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:08:53.836(Timestamp), 3(Integer), 4(Integer)
+2024-05-15 16:08:54 [http-nio-8001-exec-2] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:09:13 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:09:13 [http-nio-8001-exec-4] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 0
+2024-05-15 16:09:13 [http-nio-8001-exec-4] DEBUG c.g.h.core.dao.RequestDao.updateById - ==>  Preparing: UPDATE request SET record_id=?, request_time=?, start_time=?, end_time=?, windspeed=?, fee=?, rate=?, status=? WHERE id_=?
+2024-05-15 16:09:13 [http-nio-8001-exec-4] DEBUG c.g.h.core.dao.RequestDao.updateById - ==> Parameters: 1(Long), 2024-05-15 16:08:53.836(Timestamp), 2024-05-15 16:08:54.434(Timestamp), 2024-05-15 16:09:13.574(Timestamp), 3(Integer), 19.14(Double), 1.0(Double), 4(Integer), 15(Long)
+2024-05-15 16:09:13 [http-nio-8001-exec-4] DEBUG c.g.h.core.dao.RequestDao.updateById - <==    Updates: 1
+2024-05-15 16:09:36 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 1
+2024-05-15 16:09:38 [http-nio-8001-exec-7] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:09:38 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, windspeed, status ) VALUES ( ?, ?, ?, ? )
+2024-05-15 16:09:38 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:09:38.395(Timestamp), 3(Integer), 4(Integer)
+2024-05-15 16:09:38 [http-nio-8001-exec-7] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:09:48 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:09:48 [http-nio-8001-exec-6] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 1
+2024-05-15 16:09:48 [http-nio-8001-exec-6] DEBUG c.g.h.core.dao.RequestDao.updateById - ==>  Preparing: UPDATE request SET record_id=?, request_time=?, start_time=?, end_time=?, windspeed=?, fee=?, rate=?, status=? WHERE id_=?
+2024-05-15 16:09:48 [http-nio-8001-exec-6] DEBUG c.g.h.core.dao.RequestDao.updateById - ==> Parameters: 1(Long), 2024-05-15 16:09:38.395(Timestamp), 2024-05-15 16:09:38.496(Timestamp), 2024-05-15 16:09:48.879(Timestamp), 3(Integer), 10.383(Double), 1.0(Double), 4(Integer), 16(Long)
+2024-05-15 16:09:48 [http-nio-8001-exec-6] DEBUG c.g.h.core.dao.RequestDao.updateById - <==    Updates: 1
+2024-05-15 16:10:38 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.ws.ClientWS - 空调客户端开机，与服务端建立连接，连接id: 2
+2024-05-15 16:10:40 [http-nio-8001-exec-10] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 17,
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:10:40 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==>  Preparing: INSERT INTO request ( record_id, request_time, windspeed, status ) VALUES ( ?, ?, ?, ? )
+2024-05-15 16:10:40 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - ==> Parameters: 1(Long), 2024-05-15 16:10:40.588(Timestamp), 3(Integer), 4(Integer)
+2024-05-15 16:10:40 [http-nio-8001-exec-10] DEBUG c.g.hotel.core.dao.RequestDao.insert - <==    Updates: 1
+2024-05-15 16:10:48 [http-nio-8001-exec-9] INFO  com.gzx.hotel.core.ws.ClientWS - 请求同步到达：{
+    "id": 17,
+    "recordId": 1,
+    "windSpeed": 3,
+    "status": 4
+}
+2024-05-15 16:10:55 [http-nio-8001-exec-9] DEBUG c.g.h.core.dao.RequestDao.updateById - ==>  Preparing: UPDATE request SET record_id=?, request_time=?, start_time=?, end_time=?, windspeed=?, fee=?, rate=?, status=? WHERE id_=?
+2024-05-15 16:10:55 [http-nio-8001-exec-9] DEBUG c.g.h.core.dao.RequestDao.updateById - ==> Parameters: 1(Long), 2024-05-15 16:10:40.588(Timestamp), 2024-05-15 16:10:40.692(Timestamp), 2024-05-15 16:10:55.471(Timestamp), 3(Integer), 14.779(Double), 1.0(Double), 4(Integer), 17(Long)
+2024-05-15 16:10:55 [http-nio-8001-exec-9] DEBUG c.g.h.core.dao.RequestDao.updateById - <==    Updates: 1
+2024-05-15 16:11:06 [http-nio-8001-exec-8] INFO  com.gzx.hotel.core.ws.ClientWS - 客户端关闭连接: 2

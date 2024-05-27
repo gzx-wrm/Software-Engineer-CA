@@ -1,0 +1,172 @@
+2024-05-17 20:14:00 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 6296 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 20:14:00 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 20:14:00 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 20:14:01 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 20:14:03 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dcbae55, org.springframework.security.web.context.SecurityContextPersistenceFilter@45e6d1e0, org.springframework.security.web.header.HeaderWriterFilter@5856dbe4, org.springframework.web.filter.CorsFilter@4a9860, org.springframework.security.web.authentication.logout.LogoutFilter@1235151c, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@574a89e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4da1f38a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5eabff6b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ca16adc, org.springframework.security.web.session.SessionManagementFilter@43ecfeb5, org.springframework.security.web.access.ExceptionTranslationFilter@79476a4e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@709f0202]
+2024-05-17 20:14:03 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.174 seconds (JVM running for 4.063)
+2024-05-17 20:14:32 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/record/
+2024-05-17 20:14:32 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 20:14:32 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.RecordController.getRecordByToken
+2024-05-17 20:14:32 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [0]
+2024-05-17 20:14:33 [http-nio-8001-exec-2] DEBUG c.g.h.c.d.RecordDao.selectByUsername - ==>  Preparing: SELECT r.* FROM record r LEFT JOIN user u ON r.id_=u.record_id WHERE u.username = ? AND r.complete = ?
+2024-05-17 20:14:33 [http-nio-8001-exec-2] DEBUG c.g.h.c.d.RecordDao.selectByUsername - ==> Parameters: gzx(String), 0(Integer)
+2024-05-17 20:14:33 [http-nio-8001-exec-2] DEBUG c.g.h.c.d.RecordDao.selectByUsername - <==      Total: 0
+2024-05-17 20:14:33 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=success, msg=操作成功, data=[])
+2024-05-17 20:15:21 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/record/
+2024-05-17 20:15:21 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 20:15:21 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.RecordController.getRecordByToken
+2024-05-17 20:15:21 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [0]
+2024-05-17 20:15:21 [http-nio-8001-exec-3] DEBUG c.g.h.c.d.RecordDao.selectByUsername - ==>  Preparing: SELECT r.* FROM record r LEFT JOIN user u ON r.id_=u.record_id WHERE u.username = ? AND r.complete = ?
+2024-05-17 20:15:21 [http-nio-8001-exec-3] DEBUG c.g.h.c.d.RecordDao.selectByUsername - ==> Parameters: gzx(String), 0(Integer)
+2024-05-17 20:15:21 [http-nio-8001-exec-3] DEBUG c.g.h.c.d.RecordDao.selectByUsername - <==      Total: 1
+2024-05-17 20:15:21 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=success, msg=操作成功, data=[Record(roomId=2, startTime=Sat May 11 16:46:28 CST 2024, endTime=Sat May 11 17:49:30 CST 2024, complete=0)])
+2024-05-17 20:51:49 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 21280 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 20:51:49 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 20:51:49 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 20:51:50 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 20:51:51 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ca16adc, org.springframework.security.web.context.SecurityContextPersistenceFilter@4da1f38a, org.springframework.security.web.header.HeaderWriterFilter@5a058be5, org.springframework.web.filter.CorsFilter@5ae1c281, org.springframework.security.web.authentication.logout.LogoutFilter@4cc65c2, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@6edf29c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4dadd690, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4751e8b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ac8768e, org.springframework.security.web.session.SessionManagementFilter@53940e2f, org.springframework.security.web.access.ExceptionTranslationFilter@f557c37, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@14168e1]
+2024-05-17 20:51:52 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.006 seconds (JVM running for 3.893)
+2024-05-17 20:53:16 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/record/1
+2024-05-17 20:53:16 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 20:53:16 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.generateBill
+2024-05-17 20:53:16 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1]
+2024-05-17 20:53:16 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - ==>  Preparing: SELECT id_,record_id,request_time,start_time,end_time,temperature,windspeed,fee,rate,status FROM request WHERE (record_id = ?)
+2024-05-17 20:53:17 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - ==> Parameters: 1(Long)
+2024-05-17 20:53:17 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - <==      Total: 5
+2024-05-17 20:53:17 [http-nio-8001-exec-1] ERROR c.g.h.core.controller.BillController - 统计账单时出错！
+2024-05-17 20:53:17 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=fail, msg=服务器内部错误，请稍后重试, data={})
+2024-05-17 20:53:39 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 21364 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 20:53:39 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 20:53:39 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 20:53:40 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 20:53:41 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4041739c, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a02e34b, org.springframework.security.web.header.HeaderWriterFilter@43ecfeb5, org.springframework.web.filter.CorsFilter@5cff6b74, org.springframework.security.web.authentication.logout.LogoutFilter@4a50d04a, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@574a89e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b000fe6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f379769, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@627ff1b8, org.springframework.security.web.session.SessionManagementFilter@377874b4, org.springframework.security.web.access.ExceptionTranslationFilter@7061622, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f366587]
+2024-05-17 20:53:42 [main] INFO  com.gzx.hotel.core.Application - Started Application in 2.885 seconds (JVM running for 3.735)
+2024-05-17 20:53:47 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/record/1
+2024-05-17 20:53:47 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 20:53:47 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.generateBill
+2024-05-17 20:53:47 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1]
+2024-05-17 20:53:48 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - ==>  Preparing: SELECT id_,record_id,request_time,start_time,end_time,temperature,windspeed,fee,rate,status FROM request WHERE (record_id = ?)
+2024-05-17 20:53:48 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - ==> Parameters: 1(Long)
+2024-05-17 20:53:48 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RequestDao.selectList - <==      Total: 5
+2024-05-17 20:53:48 [http-nio-8001-exec-1] ERROR c.g.h.core.controller.BillController - 统计账单时出错！null
+2024-05-17 20:53:48 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=fail, msg=服务器内部错误，请稍后重试, data={})
+2024-05-17 20:54:34 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/record/1
+2024-05-17 20:54:34 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 20:54:34 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.generateBill
+2024-05-17 20:54:34 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1]
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RequestDao.selectList - ==>  Preparing: SELECT id_,record_id,request_time,start_time,end_time,temperature,windspeed,fee,rate,status FROM request WHERE (record_id = ?)
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RequestDao.selectList - ==> Parameters: 1(Long)
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RequestDao.selectList - <==      Total: 4
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.gzx.hotel.core.dao.BillDao.insert - ==>  Preparing: INSERT INTO bill ( record_id, fee ) VALUES ( ?, ? )
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.gzx.hotel.core.dao.BillDao.insert - ==> Parameters: 1(Long), 77.36(Double)
+2024-05-17 20:54:34 [http-nio-8001-exec-2] DEBUG c.gzx.hotel.core.dao.BillDao.insert - <==    Updates: 1
+2024-05-17 20:54:34 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : ResponseBean(code=success, msg=操作成功, data={bill=Bill(recordId=1, fee=77.36, detail=[Request(recordId=1, requestTime=Wed May 15 16:06:11 CST 2024, startTime=Wed May 15 16:06:12 CST 2024, endTime=Wed May 15 16:06:45 CST 2024, temperature=null, windSpeed=3, fee=33.06, rate=1.0, status=4), Request(recordId=1, requestTime=Wed May 15 16:08:54 CST 2024, startTime=Wed May 15 16:08:54 CST 2024, endTime=Wed May 15 16:09:14 CST 2024, temperature=null, windSpeed=3, fee=19.14, rate=1.0, status=4), Request(recordId=1, requestTime=Wed May 15 16:09:38 CST 2024, startTime=Wed May 15 16:09:38 CST 2024, endTime=Wed May 15 16:09:49 CST 2024, temperature=null, windSpeed=3, fee=10.38, rate=1.0, status=4), Request(recordId=1, requestTime=Wed May 15 16:10:41 CST 2024, startTime=Wed May 15 16:10:41 CST 2024, endTime=Wed May 15 16:10:55 CST 2024, temperature=null, windSpeed=3, fee=14.78, rate=1.0, status=4)])})
+2024-05-17 22:06:40 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 23764 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 22:06:40 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 22:06:40 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 22:06:41 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 22:06:42 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73afe2b7, org.springframework.security.web.context.SecurityContextPersistenceFilter@5529ff44, org.springframework.security.web.header.HeaderWriterFilter@1536ea40, org.springframework.web.filter.CorsFilter@9687f55, org.springframework.security.web.authentication.logout.LogoutFilter@7945b206, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@26350ea2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5eb5da12, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@472d0f4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5700c9db, org.springframework.security.web.session.SessionManagementFilter@6d672bd4, org.springframework.security.web.access.ExceptionTranslationFilter@4f379769, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9accff0]
+2024-05-17 22:06:42 [main] INFO  com.gzx.hotel.core.Application - Started Application in 2.983 seconds (JVM running for 3.84)
+2024-05-17 22:08:22 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:08:22 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:08:22 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:08:22 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@4937ddd0]
+2024-05-17 22:08:23 [http-nio-8001-exec-5] DEBUG c.g.h.core.dao.BillDao.selectList - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE (id_ = ?)
+2024-05-17 22:08:23 [http-nio-8001-exec-5] DEBUG c.g.h.core.dao.BillDao.selectList - ==> Parameters: 1(Long)
+2024-05-17 22:08:23 [http-nio-8001-exec-5] DEBUG c.g.h.core.dao.BillDao.selectList - <==      Total: 1
+2024-05-17 22:08:23 [http-nio-8001-exec-5] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
+2024-05-17 22:23:14 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 9732 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 22:23:14 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 22:23:14 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 22:23:15 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 22:23:16 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5700c9db, org.springframework.security.web.context.SecurityContextPersistenceFilter@5eb5da12, org.springframework.security.web.header.HeaderWriterFilter@7792d851, org.springframework.web.filter.CorsFilter@671d03bb, org.springframework.security.web.authentication.logout.LogoutFilter@4d09cade, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@26350ea2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5099c59b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d7a64ca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6babffb5, org.springframework.security.web.session.SessionManagementFilter@72906e, org.springframework.security.web.access.ExceptionTranslationFilter@4b515eab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285583d4]
+2024-05-17 22:23:16 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.056 seconds (JVM running for 3.932)
+2024-05-17 22:24:47 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:24:47 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:24:47 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:24:47 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@50e6c0da]
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE id_=?
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - <==      Total: 1
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==>  Preparing: SELECT id_,room_id,start_time,end_time,complete FROM record WHERE id_=?
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - <==      Total: 1
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==>  Preparing: SELECT id_,`name`,`use` FROM room WHERE id_=?
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==> Parameters: 2(Long)
+2024-05-17 22:24:47 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - <==      Total: 1
+2024-05-17 22:24:48 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
+2024-05-17 22:26:27 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 24272 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 22:26:27 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 22:26:27 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 22:26:28 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 22:26:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5700c9db, org.springframework.security.web.context.SecurityContextPersistenceFilter@5eb5da12, org.springframework.security.web.header.HeaderWriterFilter@7792d851, org.springframework.web.filter.CorsFilter@671d03bb, org.springframework.security.web.authentication.logout.LogoutFilter@4d09cade, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@26350ea2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5099c59b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d7a64ca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6babffb5, org.springframework.security.web.session.SessionManagementFilter@72906e, org.springframework.security.web.access.ExceptionTranslationFilter@4b515eab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@285583d4]
+2024-05-17 22:26:30 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.094 seconds (JVM running for 3.967)
+2024-05-17 22:26:37 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 5392 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 22:26:37 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 22:26:37 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 22:26:38 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 22:26:40 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@706ceca6, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d620a1, org.springframework.security.web.header.HeaderWriterFilter@1235151c, org.springframework.web.filter.CorsFilter@7f6329cb, org.springframework.security.web.authentication.logout.LogoutFilter@6e829e50, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@59696551, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51e3d37e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1da1380b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b8137c5, org.springframework.security.web.session.SessionManagementFilter@4a50d04a, org.springframework.security.web.access.ExceptionTranslationFilter@7792d851, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b202ff]
+2024-05-17 22:26:40 [main] INFO  com.gzx.hotel.core.Application - Started Application in 3.198 seconds (JVM running for 4.159)
+2024-05-17 22:26:55 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:26:55 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:26:55 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:26:55 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@386d6744]
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE id_=?
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - <==      Total: 1
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==>  Preparing: SELECT id_,room_id,start_time,end_time,complete FROM record WHERE id_=?
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - <==      Total: 1
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==>  Preparing: SELECT id_,`name`,`use` FROM room WHERE id_=?
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==> Parameters: 2(Long)
+2024-05-17 22:26:55 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - <==      Total: 1
+2024-05-17 22:26:55 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
+2024-05-17 22:27:49 [main] INFO  com.gzx.hotel.core.Application - Starting Application on PC-20210904KJSA with PID 23232 (E:\Java_project\hotel-parent\hotel-core\target\classes started by Administrator in E:\Java_project\hotel-parent)
+2024-05-17 22:27:49 [main] DEBUG com.gzx.hotel.core.Application - Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2024-05-17 22:27:49 [main] INFO  com.gzx.hotel.core.Application - No active profile set, falling back to default profiles: default
+2024-05-17 22:27:50 [main] DEBUG c.g.h.c.i.JwtAuthenticationTokenFilter - Filter 'jwtAuthenticationTokenFilter' configured for use
+2024-05-17 22:27:52 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36068727, org.springframework.security.web.context.SecurityContextPersistenceFilter@4cc65c2, org.springframework.security.web.header.HeaderWriterFilter@494c8f29, org.springframework.web.filter.CorsFilter@72543547, org.springframework.security.web.authentication.logout.LogoutFilter@40709f9, com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter@6e4c0d8c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d672bd4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3d620a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d88e6b9, org.springframework.security.web.session.SessionManagementFilter@73041b7d, org.springframework.security.web.access.ExceptionTranslationFilter@2001e48c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ea04cab]
+2024-05-17 22:27:52 [main] INFO  com.gzx.hotel.core.Application - Started Application in 2.997 seconds (JVM running for 3.869)
+2024-05-17 22:27:55 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:27:55 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:27:55 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:27:55 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@1b7db9c8]
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.BillDao.selectById - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE id_=?
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.BillDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.BillDao.selectById - <==      Total: 1
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RecordDao.selectById - ==>  Preparing: SELECT id_,room_id,start_time,end_time,complete FROM record WHERE id_=?
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RecordDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RecordDao.selectById - <==      Total: 1
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RoomDao.selectById - ==>  Preparing: SELECT id_,`name`,`use` FROM room WHERE id_=?
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RoomDao.selectById - ==> Parameters: 2(Long)
+2024-05-17 22:27:55 [http-nio-8001-exec-1] DEBUG c.g.h.core.dao.RoomDao.selectById - <==      Total: 1
+2024-05-17 22:27:56 [http-nio-8001-exec-1] ERROR c.g.h.core.controller.BillController - 导出账单excel表失败！
+2024-05-17 22:27:56 [http-nio-8001-exec-1] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
+2024-05-17 22:27:56 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:27:56 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:27:56 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:27:56 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@7c012a73]
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE id_=?
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.BillDao.selectById - <==      Total: 1
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==>  Preparing: SELECT id_,room_id,start_time,end_time,complete FROM record WHERE id_=?
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RecordDao.selectById - <==      Total: 1
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==>  Preparing: SELECT id_,`name`,`use` FROM room WHERE id_=?
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - ==> Parameters: 2(Long)
+2024-05-17 22:27:56 [http-nio-8001-exec-2] DEBUG c.g.h.core.dao.RoomDao.selectById - <==      Total: 1
+2024-05-17 22:27:56 [http-nio-8001-exec-2] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
+2024-05-17 22:28:16 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 请求URL : http://127.0.0.1:8001/api/bill/excel/1
+2024-05-17 22:28:16 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - IP地址 : 127.0.0.1
+2024-05-17 22:28:16 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法签名 : com.gzx.hotel.core.controller.BillController.exportExcel
+2024-05-17 22:28:16 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 方法参数 : [1, org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterResponse@694a7f2]
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.BillDao.selectById - ==>  Preparing: SELECT id_,record_id,fee FROM bill WHERE id_=?
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.BillDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.BillDao.selectById - <==      Total: 1
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RecordDao.selectById - ==>  Preparing: SELECT id_,room_id,start_time,end_time,complete FROM record WHERE id_=?
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RecordDao.selectById - ==> Parameters: 1(Long)
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RecordDao.selectById - <==      Total: 1
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RoomDao.selectById - ==>  Preparing: SELECT id_,`name`,`use` FROM room WHERE id_=?
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RoomDao.selectById - ==> Parameters: 2(Long)
+2024-05-17 22:28:16 [http-nio-8001-exec-3] DEBUG c.g.h.core.dao.RoomDao.selectById - <==      Total: 1
+2024-05-17 22:28:17 [http-nio-8001-exec-3] INFO  com.gzx.hotel.core.aop.LoggingAspect - 响应 : null
