@@ -23,6 +23,11 @@ public class StatisticInfoDTO {
     private Integer useCount;
 
     /**
+     * 空调使用费用
+     */
+    private Double totalFee;
+
+    /**
      * 最常设定的目标温度
      */
     private Double mostCommonTemperature;

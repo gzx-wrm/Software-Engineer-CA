@@ -25,6 +25,7 @@ public class StatisticInfoController {
         statisticInfoDTO.setRequestList(requestList);
 
         statisticInfoDTO.setUseCount(requestList.size());
+        statisticInfoDTO.setTotalFee(requestList.stream().mapToDouble(Request::getFee).sum());
 //        statisticInfoDTO.setMostCommonTemperature(requestList.stream().collect(Collectors.groupingBy(Request::getTemperature, Collectors.counting())).entrySet()
 //                .stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null));
         statisticInfoDTO.setMostCommonTemperature(getMostCommonFromRequest(Request::getTemperature, requestList));
