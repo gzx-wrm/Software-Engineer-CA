@@ -16,6 +16,7 @@ import com.gzx.hotel.core.service.BillService;
 import com.gzx.hotel.core.service.RecordService;
 import com.gzx.hotel.core.service.RequestService;
 import com.gzx.hotel.core.service.RoomService;
+import com.gzx.hotel.core.utils.DecimalFormatUtil;
 import com.gzx.hotel.core.utils.ExcelExportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -26,6 +27,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
@@ -52,14 +54,14 @@ public class BillController extends BaseController<BillService, Bill> {
      */
     @PostMapping("/record/{recordId}")
     public ResponseBean generateBill(@PathVariable Long recordId) {
-        List<Request> requestList = requestService.list(Wrappers.<Request>query().eq("record_id", recordId));
+        List<Request> requestList = requestService.list(Wrappers.<Request>query().eq("record_id", recordId).eq("status", 4));
 
         try {
             // 在统计费用之前要先将还未完成的请求完成，按照理论来说这时候请求应该是全部结束了，但是还是需要确保，否则统计的时候会失败
             finishRequests(requestList);
             AtomicReference<Double> total = new AtomicReference<>(0.0);
             requestList.forEach((request) -> total.updateAndGet(v -> v + request.getFee()));
-            Bill bill = new Bill(recordId, total.get(), requestList);
+            Bill bill = new Bill(recordId, DecimalFormatUtil.format(total.get(), 2), requestList);
 
             service.save(bill);
             return ResponseBean.ok().data("bill", bill);

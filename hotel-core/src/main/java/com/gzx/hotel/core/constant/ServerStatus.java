@@ -6,5 +6,6 @@ public interface ServerStatus {
     Integer WAITING = 2;
     Integer RUNNING = 3;
     Integer END = 4;
+    Integer ILLEGAL = 5;
 
 }

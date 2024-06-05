@@ -1,5 +1,6 @@
 package com.gzx.hotel.core.ws;
 
+import com.gzx.hotel.base.pojo.ResponseBean;
 import com.gzx.hotel.core.constant.ServerStatus;
 import com.gzx.hotel.core.po.Request;
 import com.gzx.hotel.core.server.CentralServer;
@@ -53,7 +54,7 @@ public class ClientWS {
                 closeSession(history, new CloseReason(CloseReason.CloseCodes.CANNOT_ACCEPT, "同一用户的多次连接！"));
             }
             sessionPool.put(username, session);
-            session.getBasicRemote().sendText("success");
+            session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.ok("建立连接成功")));
         } catch (IOException e) {
             log.error("与服务器建立连接失败，{}", e.getMessage());
         }
@@ -69,15 +70,27 @@ public class ClientWS {
             // 进行数据库存储
             // 存储到内存
             if (request1 == null) {
+                if (!Objects.equals(request.getStatus(), ServerStatus.NOT_RESPOND)) {
+                    session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("请求状态非法！")));
+                    return;
+                }
                 request.setRequestTime(new Date());
+                // 这里要注意，先存是为了获取到主键
                 requestService.save(request);
-                requestPool.put(session.getId(), request);
                 // 进行服务
                 centralServer.dispatch(request);
+                // 如果是一个非法请求
+                if (Objects.equals(request.getStatus(), ServerStatus.ILLEGAL)) {
+                    session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("请求温度超出了调温范围")));
+//                    requestService.removeById(request.getId());
+                    return;
+                }
+
+                requestPool.put(session.getId(), request);
                 request1 = request;
             }
             else if (!request.equals(request1)) {
-                session.getBasicRemote().sendText("上一个请求还未完成！");
+                session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("上一个请求还未完成！")));
                 return;
             }
             // 判断该次消息是否为end信号，如果是的话就要结束服务并保存服务结果
@@ -88,7 +101,7 @@ public class ClientWS {
                 requestPool.remove(session.getId());
             }
             // 进行返回
-            session.getBasicRemote().sendText(jsonUtil.toJson(request1));
+            session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.ok().data(request1)));
         } catch (IOException e) {
             log.error("向客户端同步请求失败, {}", e.getMessage());
             closeSession(session, new CloseReason(CloseReason.CloseCodes.CLOSED_ABNORMALLY, e.getMessage()));

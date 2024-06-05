@@ -59,11 +59,11 @@ public class Request extends BaseEntity {
     }
 
     public void calRate(Double feeRate, Double powerConsumption) {
-        rate = DecimalFormatUtil.format(feeRate * powerConsumption);
+        rate = DecimalFormatUtil.format(feeRate * powerConsumption, 2);
     }
 
     public void calFee() {
-        fee = DecimalFormatUtil.format(((double) ((int) (endTime.getTime() - startTime.getTime()))) / 1000 * rate);
+        fee = DecimalFormatUtil.format(((double) ((int) (endTime.getTime() - startTime.getTime()))) / 1000 * rate, 2);
     }
 
     public static void main(String[] args) {

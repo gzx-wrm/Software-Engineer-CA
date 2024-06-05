@@ -3,6 +3,7 @@ package com.gzx.hotel.core.dto;
 import com.gzx.hotel.core.po.Request;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +15,10 @@ public class StatisticInfoDTO {
     private Long roomId;
 
     private String roomName;
+
+    private Date startRequestTime;
+
+    private Date endRequestTime;
 
     private List<Request> requestList;
 

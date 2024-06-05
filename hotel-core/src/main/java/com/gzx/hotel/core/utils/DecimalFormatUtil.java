@@ -6,8 +6,8 @@ import java.text.DecimalFormat;
 
 public class DecimalFormatUtil {
 
-    public static Double format(Double d) {
-        BigDecimal bd = new BigDecimal(d);
-        return bd.setScale(3, RoundingMode.HALF_UP).doubleValue();
+    public static Double format(Double d, Integer digits) {
+        BigDecimal bd = new BigDecimal(String.valueOf(d));
+        return bd.setScale(digits, RoundingMode.HALF_UP).doubleValue();
     }
 }

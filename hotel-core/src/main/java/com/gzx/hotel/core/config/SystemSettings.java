@@ -28,6 +28,10 @@ public class SystemSettings {
 
     private static HashMap<Integer, Double> powerConsumptionRule;
 
+    private static Double tempLowBound;
+
+    private static Double tempHighBound;
+
     @Autowired
     public SystemSettings(@Value("${central-airconditioner.ability}") String serverAbility,
                           @Value("${central-airconditioner.fee-rate}") String feeRate,
@@ -37,11 +41,15 @@ public class SystemSettings {
                           @Value("${central-airconditioner.temperature-change-rate.low}") String TCRLow,
                           @Value("${central-airconditioner.power-consumption-rate.high}") String PCRHigh,
                           @Value("${central-airconditioner.power-consumption-rate.middle}") String PCRMiddle,
-                          @Value("${central-airconditioner.power-consumption-rate.low}") String PCRLow) {
+                          @Value("${central-airconditioner.power-consumption-rate.low}") String PCRLow,
+                          @Value("${central-airconditioner.temperature-change-low-bound}") String lowBound,
+                          @Value("${central-airconditioner.temperature-change-high-bound}") String highBound) {
 
         SystemSettings.serverAbility = Integer.parseInt(serverAbility);
         SystemSettings.feeRate = Double.parseDouble(feeRate);
         SystemSettings.waitingTime = Long.parseLong(waitingTime);
+        SystemSettings.tempLowBound = Double.parseDouble(lowBound);
+        SystemSettings.tempHighBound = Double.parseDouble(highBound);
         initPowerConsumptionRule(PCRHigh, PCRMiddle, PCRLow);
         initTempChangeRule(TCRHigh, TCRMiddle, TCRLow);
     }
@@ -80,4 +88,19 @@ public class SystemSettings {
         return serverAbility;
     }
 
+    public static void setTempLowBound(Double low) {
+        SystemSettings.tempLowBound = low;
+    }
+
+    public static void setTempHighBound(Double high) {
+        SystemSettings.tempHighBound = high;
+    }
+
+    public static Double getTempLowBound() {
+        return tempLowBound;
+    }
+
+    public static Double getTempHighBound() {
+        return tempHighBound;
+    }
 }

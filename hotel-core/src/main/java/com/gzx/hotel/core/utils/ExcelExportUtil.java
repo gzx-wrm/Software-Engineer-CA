@@ -103,10 +103,10 @@ public class ExcelExportUtil {
         headerRow.createCell(1).setCellValue("请求时间");
         headerRow.createCell(2).setCellValue("服务开始时间");
         headerRow.createCell(3).setCellValue("服务结束时间");
-        headerRow.createCell(4).setCellValue("服务时长(分钟)");
+        headerRow.createCell(4).setCellValue("服务时长");
         headerRow.createCell(5).setCellValue("风速");
         headerRow.createCell(6).setCellValue("费用(元)");
-        headerRow.createCell(7).setCellValue("费率(元/分)");
+        headerRow.createCell(7).setCellValue("费率(元/秒)");
 
         // 填充数据
         int rowNum = 1;

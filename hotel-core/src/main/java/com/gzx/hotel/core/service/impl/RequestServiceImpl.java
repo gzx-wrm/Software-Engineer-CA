@@ -6,12 +6,13 @@ import com.gzx.hotel.core.po.Request;
 import com.gzx.hotel.core.service.RequestService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class RequestServiceImpl extends ICrudServiceImpl<Request> implements RequestService {
     @Override
-    public List<Request> getByRoomId(Long roomId) {
-        return ((RequestDao) baseMapper).getByRoomId(roomId);
+    public List<Request> getByRoomId(Long roomId, Date startRequestTime, Date endRequestTime) {
+        return ((RequestDao) baseMapper).getByRoomId(roomId, startRequestTime, endRequestTime);
     }
 }

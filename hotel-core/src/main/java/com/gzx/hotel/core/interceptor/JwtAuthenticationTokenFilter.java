@@ -32,9 +32,12 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         // 1. 获取token
         String token = request.getHeader("Authorization");
         if (!StringUtils.hasText(token)) {
-            // 放行，接下来是做token解析工作，放行给后面的处理器进行异常抛出
-            filterChain.doFilter(request, response);
-            return;
+            token = request.getHeader("Sec-WebSocket-Protocol");
+            if (!StringUtils.hasText(token)) {
+                // 放行，接下来是做token解析工作，放行给后面的处理器进行异常抛出
+                filterChain.doFilter(request, response);
+                return;
+            }
         }
         // 2. 解析token
         String username;
