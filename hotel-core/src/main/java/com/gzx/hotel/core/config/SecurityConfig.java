@@ -25,10 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
-//
+    //
     @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-//
+
+    //
 //    @Autowired
 //    private SmsAuthenticationProvider smsAuthenticationProvider;
 //
@@ -36,7 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//
+
+    //
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
@@ -48,10 +50,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/room/**", "/sync").hasAnyRole("CUSTOMER")
-                .anyRequest().permitAll();
+                .antMatchers("/room/**", "/record/**", "/user/checkout", "/user/checkin", "/bill/**").hasAnyRole("FRONTDESK", "MANAGER")
+                .antMatchers("/temperature/**", "/monitor").hasAnyRole("ACADMIN")
+                .antMatchers("/statisticInfo/**").hasRole("MANAGER")
+                .antMatchers("/asyn").hasAnyRole("CUSTOMER")
+                .antMatchers("/user/logout").authenticated()
+                .antMatchers("/user/login").permitAll();
 //                .and()
-                // 这里formLogin配置的是默认的用户名密码登录的登录页面以及登录请求地址，不能重复配（会覆盖）
+        // 这里formLogin配置的是默认的用户名密码登录的登录页面以及登录请求地址，不能重复配（会覆盖）
 //                .formLogin()
 //                .loginPage("/login")
 //                .loginProcessingUrl("/user/passwordLogin")
