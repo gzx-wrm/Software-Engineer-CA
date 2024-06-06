@@ -4,6 +4,7 @@ import com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -51,7 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/room/**", "/record/username/**", "/record/list/**", "/user/checkout", "/user/checkin", "/bill/**").hasAnyRole("FRONTDESK", "MANAGER")
-                .antMatchers("/temperature/**", "/monitor").hasAnyRole("ACADMIN")
+                .antMatchers(HttpMethod.GET, "/temperature/bound").authenticated()
+                .antMatchers(HttpMethod.POST, "/temperature/bound").hasRole("ACADMIN")
+                .antMatchers("/monitor").hasRole("ACADMIN")
                 .antMatchers("/statisticInfo/**").hasRole("MANAGER")
                 .antMatchers("/asyn", "/record/").hasAnyRole("CUSTOMER")
                 .antMatchers("/user/logout").authenticated()
