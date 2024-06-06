@@ -17,6 +17,7 @@ import com.gzx.hotel.core.service.impl.UserServiceImpl;
 import com.gzx.hotel.core.utils.CommonUtil;
 import com.gzx.hotel.core.vo.CheckinVo;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.util.Preconditions;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -82,12 +83,14 @@ public class UserController extends BaseController<UserService, User> {
     public ResponseBean checkout(Integer id) {
         try {
             Record record = recordService.getById(id);
+            Preconditions.checkNotNull(record, "记录不存在");
             service.update(Wrappers.<User>update().eq("record_id", record.getId()).set("locked", 1));
 
             record.setEndTime(new Date());
             record.setComplete(1);
             recordService.update(record, Wrappers.<Record>update().eq("id_", id));
 
+            roomService.update(Wrappers.<Room>update().eq("id_", record.getRoomId()).set("`use`", 0));
             return ResponseBean.ok().data(record);
         } catch (Exception e) {
             log.error("checkout时发生错误， {}", e.getMessage());
