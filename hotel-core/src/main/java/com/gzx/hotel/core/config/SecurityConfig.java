@@ -50,10 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/room/**", "/record/**", "/user/checkout", "/user/checkin", "/bill/**").hasAnyRole("FRONTDESK", "MANAGER")
+                .antMatchers("/room/**", "/record/username/**", "/record/list/**", "/user/checkout", "/user/checkin", "/bill/**").hasAnyRole("FRONTDESK", "MANAGER")
                 .antMatchers("/temperature/**", "/monitor").hasAnyRole("ACADMIN")
                 .antMatchers("/statisticInfo/**").hasRole("MANAGER")
-                .antMatchers("/asyn").hasAnyRole("CUSTOMER")
+                .antMatchers("/asyn", "/record/").hasAnyRole("CUSTOMER")
                 .antMatchers("/user/logout").authenticated()
                 .antMatchers("/user/login").permitAll();
 //                .and()
