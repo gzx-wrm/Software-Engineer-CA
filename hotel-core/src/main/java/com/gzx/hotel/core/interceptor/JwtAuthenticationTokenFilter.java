@@ -33,18 +33,17 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         // 1. 获取token
         String token = request.getHeader("Authorization");
         if (!StringUtils.hasText(token)) {
-            token = request.getHeader("Sec-WebSocket-Protocol");
+            token = request.getParameter("Authorization");
             if (!StringUtils.hasText(token)) {
-                // 放行，接下来是做token解析工作，放行给后面的处理器进行异常抛出
                 filterChain.doFilter(request, response);
                 return;
             }
             // 从 Sec-WebSocket-Protocol这个字段拿到的token是经过base64编码的，需要解码
-            try {
-                token = CommonUtil.b64Decode(token);
-            } catch (Exception e) {
-                throw new RuntimeException("token解码失败！");
-            }
+//            try {
+//                token = CommonUtil.b64Decode(token);
+//            } catch (Exception e) {
+//                throw new RuntimeException("token解码失败！");
+//            }
         }
         // 2. 解析token
         String username;
