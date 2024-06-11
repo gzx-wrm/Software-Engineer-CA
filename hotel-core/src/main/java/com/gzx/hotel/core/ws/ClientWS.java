@@ -1,6 +1,8 @@
 package com.gzx.hotel.core.ws;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.gzx.hotel.base.pojo.ResponseBean;
+import com.gzx.hotel.core.config.SystemSettings;
 import com.gzx.hotel.core.constant.ServerStatus;
 import com.gzx.hotel.core.po.Request;
 import com.gzx.hotel.core.server.CentralServer;
@@ -81,6 +83,7 @@ public class ClientWS {
                 centralServer.dispatch(request);
                 // 如果是一个非法请求
                 if (Objects.equals(request.getStatus(), ServerStatus.ILLEGAL)) {
+                    requestService.update(Wrappers.<Request>update().eq("id_", request.getId()).set("status", ServerStatus.ILLEGAL));
                     session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("请求温度超出了调温范围")));
 //                    requestService.removeById(request.getId());
                     return;
@@ -92,6 +95,16 @@ public class ClientWS {
             else if (!request.equals(request1)) {
                 session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("上一个请求还未完成！")));
                 return;
+            }
+            if (!Objects.equals(request.getTemperature(), request1.getTemperature())) {
+                if (request.getTemperature() > SystemSettings.getTempHighBound() || request.getTemperature() < SystemSettings.getTempLowBound()) {
+                    request1.setStatus(ServerStatus.END);
+                    session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.error("请求温度超出了调温范围")));
+                }
+                else {
+                    request1.setTemperature(request.getTemperature());
+                    requestService.update(Wrappers.<Request>update().eq("id_", request.getId()).set("temperature", request1.getTemperature()));
+                }
             }
             // 判断该次消息是否为end信号，如果是的话就要结束服务并保存服务结果
             if (Objects.equals(request.getStatus(), ServerStatus.END)) {
