@@ -17,7 +17,7 @@ public class WaitQueue {
 
     private HashMap<Long, Request> map;
 
-    private HashMap<Request, Runnable> waitingQueue;
+    private HashMap<Request, Thread> waitingQueue;
 
     @Autowired
     public WaitQueue() {
@@ -26,22 +26,25 @@ public class WaitQueue {
     }
 
     public synchronized void put(Request request, Runnable runnable) {
-        waitingQueue.put(request, runnable);
+        Thread t = new Thread(runnable);
+        waitingQueue.put(request, t);
         map.put(request.getId(), request);
         request.setStatus(ServerStatus.WAITING);
-        ((Thread) runnable).start();
+        t.start();
     }
 
     public synchronized Request remove(Request request) {
-        waitingQueue.remove(request);
-        map.remove(request.getId());
-        return request;
+        return remove(request.getId());
     }
 
     public synchronized Request remove(Long requestId) {
-        Request request = map.remove(requestId);
-        waitingQueue.remove(request);
-        return request;
+        Request removed = map.remove(requestId);
+        if (removed == null) {
+            return null;
+        }
+        Thread t = waitingQueue.remove(removed);
+        t.interrupt();
+        return removed;
     }
 
     public synchronized Request getRequest(Long requestId) {
