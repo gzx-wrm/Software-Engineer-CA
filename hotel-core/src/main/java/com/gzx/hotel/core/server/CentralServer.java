@@ -41,13 +41,11 @@ public class CentralServer {
     }
 
     public synchronized Request finishRequest(Long requestId) {
-        Request request = dispatcher.finishRequest(requestId);
-        return request;
+        return dispatcher.finishRequest(requestId);
     }
 
     public synchronized Request finishRequest(Request request) {
-        dispatcher.finishRequest(request.getRecordId());
-        return request;
+        return dispatcher.finishRequest(request.getRecordId());
     }
 
     public synchronized ACStatus getACStatus() {

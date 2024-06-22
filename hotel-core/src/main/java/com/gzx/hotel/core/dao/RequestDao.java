@@ -17,7 +17,7 @@ public interface RequestDao extends ICrudDao<Request> {
             + "SELECT request.* "
             + "FROM request "
             + "LEFT JOIN record ON request.record_id = record.id_ "
-            + "WHERE record.room_id = #{roomId} "
+            + "WHERE record.room_id = #{roomId} AND request.status = 4"
             + "<if test='startRequestTime != null'>"
             + "  AND request.request_time &gt;= #{startRequestTime} "
             + "</if>"

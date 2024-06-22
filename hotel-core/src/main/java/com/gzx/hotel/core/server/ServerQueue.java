@@ -52,6 +52,13 @@ public class ServerQueue {
         return serverObject.getRequest();
     }
 
+    public synchronized Request peek() {
+        if (serverQueue.size() == 0) {
+            return null;
+        }
+        return serverQueue.peek().getRequest();
+    }
+
     public synchronized Request remove(Request request) {
         return remove(request.getId());
     }
@@ -67,7 +74,11 @@ public class ServerQueue {
     }
 
     public synchronized Request getRequest(Long requestId) {
-        return map.get(requestId).getRequest();
+        ServerObject serverObject = map.get(requestId);
+        if (serverObject != null) {
+            return serverObject.getRequest();
+        }
+        return null;
     }
 
     public synchronized List<Request> getServicingRequests() {

@@ -4,6 +4,7 @@ import com.gzx.hotel.core.interceptor.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,10 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
-//
+    //
     @Autowired
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-//
+
+    //
 //    @Autowired
 //    private SmsAuthenticationProvider smsAuthenticationProvider;
 //
@@ -36,7 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//
+
+    //
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
@@ -48,10 +51,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/room/**", "/sync").hasAnyRole("CUSTOMER")
-                .anyRequest().permitAll();
+                .antMatchers("/record/username/**", "/record/list/**", "/user/checkout", "/user/checkin", "/bill/**").hasAnyRole("FRONTDESK", "MANAGER")
+                .antMatchers("/room/**").hasAnyRole("FRONTDESK", "ACADMIN", "MANAGER")
+                .antMatchers(HttpMethod.GET, "/temperature/bound").authenticated()
+                .antMatchers(HttpMethod.POST, "/temperature/bound").hasRole("ACADMIN")
+                .antMatchers("/monitor").hasRole("ACADMIN")
+                .antMatchers("/statisticInfo/**").hasRole("MANAGER")
+                .antMatchers("/asyn", "/record/").hasAnyRole("CUSTOMER")
+                .antMatchers("/user/logout").authenticated()
+                .antMatchers("/user/login").permitAll();
 //                .and()
-                // 这里formLogin配置的是默认的用户名密码登录的登录页面以及登录请求地址，不能重复配（会覆盖）
+        // 这里formLogin配置的是默认的用户名密码登录的登录页面以及登录请求地址，不能重复配（会覆盖）
 //                .formLogin()
 //                .loginPage("/login")
 //                .loginProcessingUrl("/user/passwordLogin")
