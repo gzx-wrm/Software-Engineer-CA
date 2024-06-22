@@ -17,6 +17,9 @@ public class Room extends BaseEntity {
     @TableField("`name`")
     private String name;
 
+    @TableField("init_temp")
+    private Double initTemp;
+
     /**
      * 是否正在被使用
      */

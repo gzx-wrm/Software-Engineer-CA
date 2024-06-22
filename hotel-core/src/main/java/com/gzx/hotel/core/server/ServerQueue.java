@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
@@ -22,6 +23,8 @@ public class ServerQueue {
 
     private AirConditioner airConditioner;
 
+    private static final ReentrantLock lock = new ReentrantLock();
+
     @Autowired
     public ServerQueue() {
         map = new HashMap<>();
@@ -33,56 +36,72 @@ public class ServerQueue {
     }
 
     public synchronized void put(Request request) {
-        ServerObject serverObject = new ServerObject(request);
-        serverObject.start();
-        map.put(request.getId(), serverObject);
-        serverQueue.add(serverObject);
+        synchronized (lock) {
+            ServerObject serverObject = new ServerObject(request);
+            serverObject.start();
+            map.put(request.getId(), serverObject);
+            serverQueue.add(serverObject);
+        }
     }
 
     /**
-     * 弹出优先级最低的一个请求
+     * @Author: gzx
+     * @Description: 暂时弹出优先级最低的一个请求，但是不结束
+     * @Params:
+     * @return:
      */
     public synchronized Request pop() {
-        if (serverQueue.size() == 0) {
-            return null;
+        synchronized (lock) {
+            if (serverQueue.size() == 0) {
+                return null;
+            }
+            ServerObject serverObject = serverQueue.remove();
+            map.remove(serverObject.getRequestId());
+            return serverObject.getRequest();
         }
-        ServerObject serverObject = serverQueue.remove();
-        serverObject.finish();
-        map.remove(serverObject.getRequestId());
-        return serverObject.getRequest();
     }
 
     public synchronized Request peek() {
-        if (serverQueue.size() == 0) {
-            return null;
+        synchronized (lock) {
+            if (serverQueue.size() == 0) {
+                return null;
+            }
+            return serverQueue.peek().getRequest();
         }
-        return serverQueue.peek().getRequest();
     }
 
     public synchronized Request remove(Request request) {
-        return remove(request.getId());
+        synchronized (lock) {
+            return remove(request.getId());
+        }
     }
 
     public synchronized Request remove(Long requestId) {
-        if (!map.containsKey(requestId)) {
-            return null;
+        synchronized (lock) {
+            if (!map.containsKey(requestId)) {
+                return null;
+            }
+            ServerObject removed = map.remove(requestId);
+            removed.finish();
+            serverQueue.remove(removed);
+            return removed.getRequest();
         }
-        ServerObject removed = map.remove(requestId);
-        removed.finish();
-        serverQueue.remove(removed);
-        return removed.getRequest();
     }
 
     public synchronized Request getRequest(Long requestId) {
-        ServerObject serverObject = map.get(requestId);
-        if (serverObject != null) {
-            return serverObject.getRequest();
+        synchronized (lock) {
+            ServerObject serverObject = map.get(requestId);
+            if (serverObject != null) {
+                return serverObject.getRequest();
+            }
+            return null;
         }
-        return null;
     }
 
     public synchronized List<Request> getServicingRequests() {
-        return map.values().stream().map(ServerObject::getRequest).collect(Collectors.toList());
+        synchronized (lock) {
+            return map.values().stream().map(ServerObject::getRequest).collect(Collectors.toList());
+        }
     }
 
 }
