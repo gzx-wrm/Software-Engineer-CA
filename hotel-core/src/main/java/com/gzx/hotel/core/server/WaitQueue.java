@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 等待队列
@@ -19,6 +20,8 @@ public class WaitQueue {
 
     private HashMap<Request, Thread> waitingQueue;
 
+    private static final ReentrantLock lock = new ReentrantLock();
+
     @Autowired
     public WaitQueue() {
         this.map = new HashMap<>();
@@ -26,32 +29,42 @@ public class WaitQueue {
     }
 
     public synchronized void put(Request request, Runnable runnable) {
-        Thread t = new Thread(runnable);
-        waitingQueue.put(request, t);
-        map.put(request.getId(), request);
-        request.setStatus(ServerStatus.WAITING);
-        t.start();
+        synchronized (lock) {
+            Thread t = new Thread(runnable);
+            waitingQueue.put(request, t);
+            map.put(request.getId(), request);
+            request.setStatus(ServerStatus.WAITING);
+            t.start();
+        }
     }
 
     public synchronized Request remove(Request request) {
-        return remove(request.getId());
+        synchronized (lock) {
+            return remove(request.getId());
+        }
     }
 
     public synchronized Request remove(Long requestId) {
-        Request removed = map.remove(requestId);
-        if (removed == null) {
-            return null;
+        synchronized (lock) {
+            Request removed = map.remove(requestId);
+            if (removed == null) {
+                return null;
+            }
+            Thread t = waitingQueue.remove(removed);
+            t.interrupt();
+            return removed;
         }
-        Thread t = waitingQueue.remove(removed);
-        t.interrupt();
-        return removed;
     }
 
     public synchronized Request getRequest(Long requestId) {
-        return map.get(requestId);
+        synchronized (lock) {
+            return map.get(requestId);
+        }
     }
 
     public synchronized List<Request> getWaitingRequests() {
-        return new ArrayList<>(map.values());
+        synchronized (lock) {
+            return new ArrayList<>(map.values());
+        }
     }
 }

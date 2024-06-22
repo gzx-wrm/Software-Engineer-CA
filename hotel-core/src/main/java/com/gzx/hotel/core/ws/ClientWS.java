@@ -56,6 +56,7 @@ public class ClientWS {
 //                sessionPool.remove(username);
                 closeSession(history, new CloseReason(CloseReason.CloseCodes.CANNOT_ACCEPT, "同一用户的多次连接！"));
             }
+            session.setMaxIdleTimeout(1000000L);
             sessionPool.put(username, session);
             session.getBasicRemote().sendText(jsonUtil.toJson(ResponseBean.ok("建立连接成功")));
         } catch (IOException e) {

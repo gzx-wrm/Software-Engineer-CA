@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/temperature/bound").hasRole("ACADMIN")
                 .antMatchers("/monitor").hasRole("ACADMIN")
                 .antMatchers("/statisticInfo/**").hasRole("MANAGER")
-                .antMatchers("/asyn", "/record/").hasAnyRole("CUSTOMER")
+                .antMatchers("/asyn", "/record/", "/record/room/**").hasAnyRole("CUSTOMER")
                 .antMatchers("/user/logout").authenticated()
                 .antMatchers("/user/login").permitAll();
 //                .and()
